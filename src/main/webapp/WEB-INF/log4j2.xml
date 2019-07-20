@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration debug="false" status="INFO">
+<Appenders>
+    <RollingFile name="file"
+                 fileName="/tmp/samplelogs${web:contextPath}/sample.log"
+                 filePattern="/tmp/samplelogs${web:contextPath}/sample-%i.log"
+                 immediateFlush="true" append="true">
+        <Policies>
+            <SizeBasedTriggeringPolicy size="10MB" />
+        </Policies>
+        <PatternLayout pattern="%d %-5p  [%c{1}] %m %n"/>
+    </RollingFile>
+</Appenders>
+<Loggers>
+    <Root level="INFO">
+        <AppenderRef ref="file" />
+    </Root>
+</Loggers>
+</Configuration>
